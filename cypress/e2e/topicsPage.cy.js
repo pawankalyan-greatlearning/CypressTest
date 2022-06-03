@@ -15,15 +15,15 @@ describe('courses filter', () => {
              cy.get(label).invoke('text').then((val)=>{
                 cy.get(`#course-count`).invoke(`text`).then(text=>{
                     if(text>0){
-                        cy.get(`#subject-course-cards > a:nth-child(n) > div > div.course-desc > div.course-info > div:nth-child(2)`).each((a)=>{
-                            cy.get(a).invoke(`text`).then((val2)=>{
+                        cy.get(`#subject-course-cards > a:nth-child(n) > div > div.course-desc > div.course-info > div:nth-child(2)`).each((element)=>{
+                            cy.get(element).invoke(`text`).then((val2)=>{
                                 //    cy.log(val, val2)
                                 expect(val.trim()).equal(val2.trim())
                             })
                         })
                     }
                 })
-             })
+            })
              cy.get(label).click()
         })
     });
